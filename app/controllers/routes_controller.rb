@@ -1,5 +1,7 @@
 class RoutesController < ApplicationController
+  before_action :set_route, only: [:show, :edit, :update, :destroy]
   def index
+    @routes = Route.all
   end
 
   def show
@@ -18,5 +20,11 @@ class RoutesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_route
+    @route = Route.find(params[:id])
   end
 end
