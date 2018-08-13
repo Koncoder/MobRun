@@ -1,7 +1,11 @@
 class RunsController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: :index
+
   before_action :set_run, only: [:show, :edit, :update, :destroy]
   before_action :set_route, only: [:show, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
+
 
   def index
     @runs = Run.all
