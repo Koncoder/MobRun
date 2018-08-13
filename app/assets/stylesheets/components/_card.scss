@@ -12,9 +12,9 @@
 
 /* Add some padding inside the card container */
 .container {
-    padding: 2px 16px;
+    max-width: 1000px;
+    margin: 50px auto;
 }
-
 img {
     border-radius: 5px 5px 0 0;
 }
