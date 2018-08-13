@@ -18,7 +18,7 @@ class RoutesController < ApplicationController
     #@route.user = User.find(params[:user_id])
     #@user = @route.user
     if @route.save
-      redirect_to new_run_path
+      redirect_to new_route_run_path(@route)
     else
       render :new
     end
