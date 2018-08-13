@@ -4,18 +4,18 @@ class RunsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
+    @runs = Run.all
   end
 
   def show
+    @run = Run.find(params[:id])
   end
 
   def new
-    #@user = User.find(params[:user_id])
     @run = Run.new
   end
 
   def create
-
   end
 
   def edit
@@ -25,6 +25,8 @@ class RunsController < ApplicationController
   end
 
   def destroy
+    Run.destroy(params[:id])
+    redirect_to runs_path
   end
 
   private
