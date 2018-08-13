@@ -6,9 +6,12 @@ class RunsController < ApplicationController
   end
 
   def new
+    #@user = User.find(params[:user_id])
+    @run = Run.new
   end
 
   def create
+
   end
 
   def edit
@@ -18,5 +21,11 @@ class RunsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def route_params
+    params.require(:route).permit(:start_time, :end_time)
   end
 end
