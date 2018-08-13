@@ -10,9 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_08_13_184816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "routes", force: :cascade do |t|
+    t.string "name"
+    t.string "start_point"
+    t.string "end_point"
+    t.integer "total_length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "runs", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "route_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["route_id"], name: "index_runs_on_route_id"
+    t.index ["user_id"], name: "index_runs_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "start_point"
+    t.bigint "user_id"
+    t.bigint "run_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["run_id"], name: "index_sessions_on_run_id"
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "profile_picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "runs", "routes"
+  add_foreign_key "runs", "users"
+  add_foreign_key "sessions", "runs"
+  add_foreign_key "sessions", "users"
 end
