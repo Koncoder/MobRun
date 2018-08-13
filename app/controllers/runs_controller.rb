@@ -1,4 +1,6 @@
 class RunsController < ApplicationController
+  before_action :set_run, only: [:show, :edit, :update, :destroy]
+
   def index
   end
 
@@ -18,5 +20,11 @@ class RunsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_run
+    @run = Run.find(params[:id])
   end
 end
