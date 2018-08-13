@@ -1,2 +1,8 @@
-<h1>Routes#new</h1>
+<h1>New Routes</h1>
 <p>Find me in app/views/routes/new.html.erb</p>
+<%= simple_form_for(@route) do |f| %>
+  <%= f.input :start_point %>
+  <%= f.input :end_point %>
+  <%= f.input :total_length %><span>km</span>
+  <%= f.submit 'Add route' %>
+<% end %>
