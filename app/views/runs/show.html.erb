@@ -1,2 +1,22 @@
 <h1>Runs#show</h1>
 <p>Find me in app/views/runs/show.html.erb</p>
+
+<ul><h1>run details:</h1>
+  <li>run start time: <%= @run.start_time %></li>
+  <li>run end time: <%= @run.end_time %></li>
+  <li>run created at: <%= @run.created_at %></li>
+  <li>run updated at: <%= @run.updated_at %></li>
+</ul>
+<ul><h1>route details:</h1>
+  <li>route id: <%= @run.route_id %> </li>
+  <li>route name: <%= @route.name %></li>
+  <li>route start point: <%= @route.start_point %> </li>
+  <li>route end point: <%= @route.end_point %></li>
+  <li>route total length: <%= @route.total_length %></li>
+</ul>
+<ul><h1>user details:</h1>
+  <li>user id: <%= @run.user_id %></li>
+  <li>user name: <%= @user.name %></li>
+  <li>user avatar filepath: <%= @user.profile_picture %></li>
+</ul>
+
