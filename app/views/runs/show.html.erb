@@ -1,5 +1,7 @@
 <h1>Runs#show</h1>
 <p>Find me in app/views/runs/show.html.erb</p>
+<%= link_to "Add", run_run_sessions_path(@run), method: :post %>
+<span><%= @session %></span>
 
 <ul><h1>run details:</h1>
   <li>run start time: <%= @run.start_time %></li>
