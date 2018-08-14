@@ -1,34 +1,35 @@
-<div class="banner">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="header">
+<header class="main-header">
+
   <center>
-<h1>MobRuns</h1>
-<%= link_to "+ new route", new_route_url, method: :get %>
-<%= link_to "+ new run", routes_url, method: :get %>
+    <h1>Mob Runs</h1>
+    <%= link_to "+ new route", new_route_url, method: :get %>
+    <%= link_to "+ new run", routes_url, method: :get %>
   </center>
 </div>
+</header>
 
-
-<% @runs.each do |run| %>
 
 <div class="container">
-  <div class="card">
   <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-3">
-        <h2><%= run.route.name %></h2>
-        <%= link_to "details", run_path(run) %>
+    <% @runs.each do |run| %>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img class="card-img-top" src='https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1002f970f615e046c7c5376c46e13bef&auto=format&fit=crop&w=500&q=60' width="250" height="180" alt="Card image cap">
+          <h2><%= run.route.name %></h2>
+          <%= link_to "details", run_path(run) %>
           <p>
+            <a href="#" class="fa fa-facebook"></a>
+            <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;color:red"></i>
             <%= link_to run_path(run), method: :delete do %>
-            <i class="fa fa-share-alt" aria-hidden="true"></i>
-            <i class="fa fa-heart" aria-hidden="true"></i>
-            <i class="fas fa-trash-alt"></i>
+              <i class="fas fa-trash-alt"></i>
             <% end %>
           </p>
-      <% end %>
-    </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
-<div>
-  <center>
 <%= link_to "all routes", routes_path %>
-  </center>
-</div>

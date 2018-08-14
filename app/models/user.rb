@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :profile_picture, PhotoUploader
+
   has_many :run_sessions
   has_many :runs, through: :run_sessions
   has_many :created_runs, class_name: "Run", source: "run"
   has_many :routes, through: :runs
 end
-
