@@ -20,7 +20,8 @@ route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port", total_leng
 run1 = Run.new
 run1.user = user1
 run1.route = route1
-run1.start_time = Date.tomorrow
+run1.start_time = Date.today
+run1.end_time = Date.tomorrow
 run1.save
 
 run2 = Run.new
