@@ -1,21 +1,22 @@
 <center><h1>Routes</h1></center>
 
 <div class="container">
-  <div class="card">
-    <div class="row">
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <ul><h1>Route Details:</h1>
-        <% @routes.each do |route| %>
-          <%= link_to route.name, route_path(route) %>
-          <li>route id: <%= route.id %> </li>
-          <li>route name: <%= route.name %></li>
-          <li>route start point: <%= route.start_point %> </li>
-          <li>route end point: <%= route.end_point %></li>
-          <li>route total length: <%= route.total_length %></li>
+  <div class="row">
+    <h1>Route Details:</h1>
+      <% @routes.each do |route| %>
+          <div class="card">
+            <ul>
+              <%= link_to route.name, route_path(route) %>
+              <li>route id: <%= route.id %> </li>
+              <li>route name: <%= route.name %></li>
+              <li>route start point: <%= route.start_point %> </li>
+              <li>route end point: <%= route.end_point %></li>
+              <li>route total length: <%= route.total_length %></li>
+            </ul>
           <% end %>
-        </ul>
         <%= link_to "view all runs", runs_path %>
       </div>
     </div>
   </div>
-</div>
+
+

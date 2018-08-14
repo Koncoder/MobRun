@@ -1,6 +1,6 @@
 <center><h1>Show Routes</h1></center>
+
 <div class="container">
-  <div class="card">
     <div class="row">
       <div class="col-sm-6 col-md-4 col-lg-3">
       <%= link_to "run this route!", new_route_run_path(@route) %>
@@ -12,7 +12,6 @@
           <li>route total length: <%= @route.total_length %></li>
         </ul>
         <%= link_to "back to all routes", routes_path %>
-      </div>
     </div>
   </div>
 </div>
