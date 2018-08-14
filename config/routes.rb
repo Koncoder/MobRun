@@ -11,5 +11,4 @@ Rails.application.routes.draw do
     resources :sessions, only: [ :new, :create ]
   end
   resources :sessions, except: [ :new, :create ]
-  root to: 'runs#index'
 end
