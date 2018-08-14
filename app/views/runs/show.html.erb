@@ -1,24 +1,51 @@
-<h1>Runs#show</h1>
-<p>Find me in app/views/runs/show.html.erb</p>
+<div class="run-half-banner">
+  <div class="run-banner-text">
+  <h1>Let's run <%= @route.name %>!</h1><p>(<%= @route.total_length %>km max)</p>
+  </div>
+  <div id="map-container"></div>
+</div>
 
-<ul><h1>run details:</h1>
-  <li>run start time: <%= @run.start_time %></li>
-  <li>run end time: <%= @run.end_time %></li>
-  <li>run created at: <%= @run.created_at %></li>
-  <li>run updated at: <%= @run.updated_at %></li>
-</ul>
-<ul><h1>route details:</h1>
-  <li>route id: <%= @run.route_id %> </li>
-  <li>route name: <%= @route.name %></li>
-  <li>route start point: <%= @route.start_point %> </li>
-  <li>route end point: <%= @route.end_point %></li>
-  <li>route total length: <%= @route.total_length %></li>
-</ul>
-<ul><h1>user details:</h1>
-  <li>user id: <%= @run.user_id %></li>
-  <li>user name: <%= @user.name %></li>
-  <li>user avatar filepath: <%= @user.profile_picture %></li>
-</ul>
 
-<%= link_to "back to all runs", runs_path %>
+<div class="container run-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-3 text-center run-text">
+      <% if @run.start_time.future? && @run.start_time.today? %>
+      <h2><strong><%= @route.start_point %></strong></h2>
+      <h2><strong><%= ((@run.start_time - Time.now) / 60).floor %> minutes from now</strong></h2>
+      <% elsif @run.start_time.future? %>
+      <h2><strong><%= @route.start_point %></strong></h2>
+      <h2><strong>This run starts in <%= ((@run.start_time - Time.now) / 60 / 60 / 24).ceil %> day(s)</strong></h2>
+      <% else %>
+      <h2><strong>This run was started <%= ((Time.now - @run.start_time) / 60 / 60 / 24).ceil %> day(s) ago</strong></h2>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-3 text-center run-text">
+      <% if @run.end_time.future? && @run.end_time.today? %>
+      <h2><strong><%= @route.end_point %></strong></h2>
+      <h2><strong><%= ((@run.end_time - Time.now) / 60).floor %> minutes from now</strong></h2>
+      <% elsif @run.end_time.future? %>
+      <h2><strong><%= @route.end_point %></strong></h2>
+      <h2><strong>This run ends in <%= ((@run.end_time - Time.now) / 60 / 60 / 24).ceil %> day(s)</strong></h2>
+      <% else %>
+      <h2><strong>This run was ended <%= ((Time.now - @run.end_time) / 60 / 60 / 24).ceil %> day(s) ago</strong></h2>
+      <% end %>
+    </div>
+  </div>
+
+  <h2>This run was created by <%= @user.name %> [TODO: avatar here] </h2>
+
+
+
+  <ul><h1>other run details:</h1>
+    <li>run created at: <%= @run.created_at %></li>
+    <li>run updated at: <%= @run.updated_at %></li>
+  </ul>
+  <ul><h1>other route details:</h1>
+    <li>route id: <%= @run.route_id %> </li>
+  </ul>
+  <ul><h1>other user details:</h1>
+    <li>user id: <%= @run.user_id %></li>
+    <li>user avatar filepath: <%= @user.profile_picture %></li>
+  </ul>
+</div>
 

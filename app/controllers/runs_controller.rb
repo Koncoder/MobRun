@@ -24,16 +24,16 @@ class RunsController < ApplicationController
   def create
     @run = Run.new(run_params)
     @run.route = Route.find(params[:route_id])
-
-    @route = @run.route
-    #complete with the user!!
-    #@user = current_user
-
+    @run.user = current_user
+    @run.end_time = end_time(@run)
     if @run.save
-      raise
-      redirect_to route_path(@route)
+      run_session = RunSession.create()
+      run_session[:user_id] = current_user.id
+      run_session[:run_id] = @run.id
+      run_session[:start_point] = 1
+      run_session.save
+      redirect_to run_path(@run)
     else
-      raise
       render :new
     end
   end
@@ -52,7 +52,7 @@ class RunsController < ApplicationController
   private
 
   def run_params
-    params.require(:run).permit(:start_time, :end_time)
+    params.require(:run).permit(:start_time, :speed)
   end
 
   def set_run
@@ -65,5 +65,10 @@ class RunsController < ApplicationController
 
   def set_user
     @user = User.find(@run.user_id)
+  end
+
+  def end_time(run)
+    time = run.route.total_length * 1000 / run.speed
+    return run.start_time + time.seconds
   end
 end

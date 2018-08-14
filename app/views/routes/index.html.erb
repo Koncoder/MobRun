@@ -1,15 +1,22 @@
-<h1>Routes#index</h1>
-<p>Find me in app/views/routes/index.html.erb</p>
+<center><h1>Routes</h1></center>
 
-<ul><h1>route details:</h1>
-<% @routes.each do |route| %>
-  <%= link_to route.name, route_path(route) %>
-  <li>route id: <%= route.id %> </li>
-  <li>route name: <%= route.name %></li>
-  <li>route start point: <%= route.start_point %> </li>
-  <li>route end point: <%= route.end_point %></li>
-  <li>route total length: <%= route.total_length %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <h1>Route Details:</h1>
+      <% @routes.each do |route| %>
+          <div class="card2">
+            <ul>
+             <u> <h3><%= link_to route.name, route_path(route) %></h3></u>
+              <li>route id: <%= route.id %> </li>
+              <li>route name: <%= route.name %></li>
+              <li>route start point: <%= route.start_point %> </li>
+              <li>route end point: <%= route.end_point %></li>
+              <li>route total length: <%= route.total_length %></li>
+            </ul>
+          <% end %>
+        <%= link_to "view all runs", runs_path %>
+      </div>
+    </div>
+  </div>
 
-<%= link_to "view all runs", runs_path %>
+
