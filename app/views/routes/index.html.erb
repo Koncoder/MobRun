@@ -4,9 +4,9 @@
   <div class="row">
     <h1>Route Details:</h1>
       <% @routes.each do |route| %>
-          <div class="card">
+          <div class="card2">
             <ul>
-              <%= link_to route.name, route_path(route) %>
+             <u> <h3><%= link_to route.name, route_path(route) %></h3></u>
               <li>route id: <%= route.id %> </li>
               <li>route name: <%= route.name %></li>
               <li>route start point: <%= route.start_point %> </li>
