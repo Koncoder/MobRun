@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :runs, only: [ :new, :create ]
   end
   resources :runs, except: [ :new, :create ] do
-    # resources :sessions, only: [ :new, :create ]
+    #resources :sessions, only: [ :new, :create ]
   end
   # resources :sessions, except: [ :new, :create ]
 end
