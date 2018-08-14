@@ -12,8 +12,8 @@ Run.destroy_all
 Route.destroy_all
 User.destroy_all
 
-user1 = User.create(name: "Michael")
-user2 = User.create(name: "Konstantin")
+user1 = User.create(name: "Michael", email: "michael@email.com", password: "hunter2")
+user2 = User.create(name: "Konstantin", email: "kon@email.com", password: "hunter2")
 
 route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port")
 

@@ -4,18 +4,17 @@
 <%= link_to "+ new route", new_route_url, method: :get %>
 
 <% @runs.each do |run| %>
-
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category">Popular</div>
-    <div class="card-description">
-      <h2><%= run.route.name %></h2>
-      <%= link_to "details", run_path(run) %>
-        <p>
-          <%= link_to run_path(run), method: :delete do %>
-          <i class="fas fa-trash-alt"></i>
-          <% end %>
-        </p>
-    <% end %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+    <div class="card-category">Popular</div>
+      <div class="card-description">
+        <h2><%= run.route.name %></h2>
+        <%= link_to "details", run_path(run) %>
+          <p>
+            <%= link_to run_path(run), method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </p>
+      <% end %>
+    </div>
   </div>
-</div>
 <%= link_to "all routes", routes_path %>
