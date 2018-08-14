@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+<div class="header">
+  <center>
+    <h1>Create a New Run</h1>
+  </center>
+</div>
+
+
+<div class="container">
+  <div class="form-group col-xs-12 col-sm-offset-4 col-sm-4">
+    <h1>Create a run</h1>
+    <%= simple_form_for [@route, @run] do |f| %>
+      <%= f.input :start_time %>
+      <%= f.input :end_time %>
+      <%= f.submit 'Add route' %>
+    <% end %>
+  </div>
+=======
 <h1>Runs#new</h1>
 <p>Find me in app/views/runs/new.html.erb</p>
 <div class="form-group col-xs-12 col-sm-offset-4 col-sm-4">
@@ -8,4 +26,5 @@
     <%#= f.input :end_time %>
     <%= f.submit 'Add route' %>
   <% end %>
+>>>>>>> f3a2b3cef9709b34cd91339339d91c75416a9e42
 </div>
