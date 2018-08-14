@@ -1,4 +1,4 @@
-class Session < ApplicationRecord
+class RunSession < ApplicationRecord
   belongs_to :user
   belongs_to :run
 end
