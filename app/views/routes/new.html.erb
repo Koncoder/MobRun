@@ -1,0 +1,18 @@
+<h2 class="text-center">New Routes</h2>
+
+<div class="form-wrapper">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
+        <%= simple_form_for(@route) do |f| %>
+          <%= f.input :start_point %>
+          <%= f.input :end_point %>
+          <%= f.input :total_length, label: "Total length in km" %>
+          <%= f.submit "Add route", class: "btn btn-primary"%>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
