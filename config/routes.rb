@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  root to: "runs#index"
+
   resources :users
   resources :routes, only: [ :index, :show, :new, :create ] do
     resources :runs, only: [ :new, :create ]

@@ -1,7 +1,11 @@
 class RunsController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: :index
+
   before_action :set_run, only: [:show, :edit, :update, :destroy]
   before_action :set_route, only: [:show, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update]
+
 
   def index
     @runs = Run.all
@@ -12,10 +16,26 @@ class RunsController < ApplicationController
   end
 
   def new
+    #@user = User.find(params[:user_id])
+    @route = Route.find(params[:route_id])
     @run = Run.new
   end
 
   def create
+    @run = Run.new(run_params)
+    @run.route = Route.find(params[:route_id])
+
+    @route = @run.route
+    #complete with the user!!
+    #@user = current_user
+
+    if @run.save
+      raise
+      redirect_to route_path(@route)
+    else
+      raise
+      render :new
+    end
   end
 
   def edit
@@ -31,8 +51,8 @@ class RunsController < ApplicationController
 
   private
 
-  def route_params
-    params.require(:route).permit(:start_time, :end_time)
+  def run_params
+    params.require(:run).permit(:start_time, :end_time)
   end
 
   def set_run
