@@ -1,32 +1,36 @@
 <div class="run-half-banner">
   <div class="run-banner-text">
-  <h1>Let's run <%= @route.name %>! (<%= @route.total_length %>km max)</h1>
+  <h1>Let's run <%= @route.name %>!</h1><p>(<%= @route.total_length %>km max)</p>
   </div>
   <div id="map-container"></div>
 </div>
 
 
-<div class="container">
-  <h2>Starting at <strong><%= @route.start_point %></strong> at <strong><%= @run.start_time %></strong></h2>
-  <h2>Arriving at <strong><%= @route.end_point %></strong> at <strong><%= @run.end_time %></strong></h2>
+<div class="container run-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-3 text-center run-text">
+      <h2><strong><%= @route.start_point %></strong></h2>
+      <h2><strong><%= @run.start_time %></strong></h2>
+    </div>
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-3 text-center run-text">
+      <h2><strong><%= @route.end_point %></strong></h2>
+      <h2><strong><%= @run.end_time %></strong></h2>
+    </div>
+  </div>
+
   <h2>This run was created by <%= @user.name %> [TODO: avatar here] </h2>
 
-  <ul><h1>run details:</h1>
-    <li>run start time: </li>
-    <li>run end time: </li>
+
+
+  <ul><h1>other run details:</h1>
     <li>run created at: <%= @run.created_at %></li>
     <li>run updated at: <%= @run.updated_at %></li>
   </ul>
-  <ul><h1>route details:</h1>
+  <ul><h1>other route details:</h1>
     <li>route id: <%= @run.route_id %> </li>
-    <li>route name: <%= @route.name %></li>
-    <li>route start point:  </li>
-    <li>route end point: <%= @route.end_point %></li>
-    <li>route total length: </li>
   </ul>
-  <ul><h1>user details:</h1>
+  <ul><h1>other user details:</h1>
     <li>user id: <%= @run.user_id %></li>
-    <li>user name: </li>
     <li>user avatar filepath: <%= @user.profile_picture %></li>
   </ul>
 </div>
