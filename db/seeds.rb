@@ -7,13 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Session.destroy_all
+RunSession.destroy_all
 Run.destroy_all
 Route.destroy_all
 User.destroy_all
 
 user1 = User.create(name: "Michael", email: "michael@email.com", password: "hunter2")
 user2 = User.create(name: "Konstantin", email: "kon@email.com", password: "hunter2")
+user3 = User.create(name: "123456", email: "kont@email.com", password: "123456")
 
 route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port", total_length: "50")
 
@@ -30,7 +31,7 @@ run2.route = route1
 run2.start_time = Date.tomorrow
 run2.save
 
-session1 = Session.new
+session1 = RunSession.new
 session1.user = user2 # user who is participating
 session1.run = run1
 session1.save

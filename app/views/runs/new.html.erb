@@ -4,7 +4,8 @@
   <h1>Create a run</h1>
   <%= simple_form_for [@route, @run] do |f| %>
     <%= f.input :start_time %>
-    <%= f.input :end_time %>
+    <%= f.input :speed %>
+    <%#= f.input :end_time %>
     <%= f.submit 'Add route' %>
   <% end %>
 </div>
