@@ -36,7 +36,7 @@ class RoutesController < ApplicationController
   private
 
   def route_params
-    params.require(:route).permit(:start_point, :end_point, :total_length)
+    params.require(:route).permit(:name, :start_point, :end_point, :total_length)
   end
 
   def set_route
