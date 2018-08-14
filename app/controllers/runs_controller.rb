@@ -24,16 +24,13 @@ class RunsController < ApplicationController
   def create
     @run = Run.new(run_params)
     @run.route = Route.find(params[:route_id])
+    @run.user = current_user
 
     @route = @run.route
-    #complete with the user!!
-    #@user = current_user
 
     if @run.save
-      raise
-      redirect_to route_path(@route)
+      redirect_to run_path(@run)
     else
-      raise
       render :new
     end
   end
