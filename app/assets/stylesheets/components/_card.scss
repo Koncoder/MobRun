@@ -9,6 +9,14 @@
 //   font-weight: 400;
 // }
 
+.run-details-link {
+  text-decoration: none !important;
+  color: $blue;
+  &:hover {
+    color: $orange;
+  }
+}
+
 .wrapper {
   display: table;
   height: 100%;
