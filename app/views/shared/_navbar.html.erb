@@ -1,12 +1,13 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
-    <%= image_tag "running_icon.png", alt: "Running Icon" %>
+    <%= image_tag "lace_logo.png", alt: "Laceup Icon" %>
   </a>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <%= link_to "Create a run", routes_url, method: :get, class: "navbar-wagon-item navbar-wagon-link"%>
     <%= link_to "Create a route", new_route_path, class: "navbar-wagon-item navbar-wagon-link"%>
     <%= link_to "Favorite runs", new_route_path, class: "navbar-wagon-item navbar-wagon-link"%>
     <%= link_to "Committed runs", runs_path, class: "navbar-wagon-item navbar-wagon-link"%>
