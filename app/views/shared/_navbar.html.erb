@@ -9,7 +9,7 @@
 
     <%= link_to "Create a route", new_route_path, class: "navbar-wagon-item navbar-wagon-link"%>
     <%= link_to "Favorite runs", new_route_path, class: "navbar-wagon-item navbar-wagon-link"%>
-    <%= link_to "Committed runs", new_route_path, class: "navbar-wagon-item navbar-wagon-link"%>
+    <%= link_to "Committed runs", runs_path, class: "navbar-wagon-item navbar-wagon-link"%>
 
     <% if not user_signed_in? %>
       <%= link_to "Sign-Up",  new_user_registration_path, class: "btn btn-primary btn-xs",id: "navbar-big-btn"%>
