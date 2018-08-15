@@ -31,7 +31,7 @@ run2.route = route1
 run2.start_time = Date.tomorrow
 run2.save
 
-session1 = RunSession.new
-session1.user = user2 # user who is participating
-session1.run = run1
-session1.save
+run_session1 = RunSession.create(user_id: user1.id, run_id: run1.id, start_point: 1)
+run_session1.save
+run_session2 = RunSession.create(user_id: user2.id, run_id: run1.id, start_point: 1)
+run_session1.save
