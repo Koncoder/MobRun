@@ -1,8 +1,8 @@
 <div class="form-group col-xs-12 col-sm-offset-4 col-sm-4">
-  <h1>Create a run</h1>
+  <h3>Choose a start time and a pace for <span class="orange-bold-text"><%= @route.name %></span></h3>
   <%= simple_form_for [@route, @run] do |f| %>
     <%= f.input :start_time %>
-    <%= f.input :speed %>
+    <%= f.input :speed, label: "Pace (km/h)" %>
     <%#= f.input :end_time %>
     <%= f.submit 'Add route' %>
   <% end %>

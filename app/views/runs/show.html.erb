@@ -2,9 +2,9 @@
 
 <div class="run-half-banner">
   <div class="run-banner-text">
-  <h1>Let's run <%= @route.name %>!</h1><p>(<%= @route.total_length %>km max)</p>
-  <%= link_to "Join", run_run_sessions_path(@run), method: :post, class: "btn btn-primary btn-lg" %>
-  <span><%= @session %></span>
+  <h1><span class="orange-bold-text"><%= @session %> people</span><br>are lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
+  <%= link_to "Count me in", run_run_sessions_path(@run), method: :post, class: "btn btn-primary btn-lg" %>
+
   </div>
   <iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=19439921&measures=on&title=off&near=off&images=off&maptype=M" width="500" height="400"></iframe><div style="background-color:#red;color:#777;font-size:11px;line-height:16px;">Powered by <a style="color:#06d;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
 </div>
@@ -12,43 +12,21 @@
 <div class="container run-container">
   <div class="row">
     <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-3 text-center run-text">
-      <% if @run.start_time.future? && @run.start_time.today? %>
-      <h2><strong><%= @route.start_point %></strong></h2>
-      <h2><strong><%= Time.at(@run.start_time - Time.now).utc.strftime("%H:%M:%S") %> minutes from now</strong></h2>
-      <% elsif @run.start_time.future? %>
-      <h2><strong><%= @route.start_point %></strong></h2>
-      <h2><strong>This run starts in <%= ((@run.start_time - Time.now) / 60 / 60 / 24).ceil %> day(s)</strong></h2>
+       <% if @run.end_time.past?  %>
+        <h1><%= @session %> people crossed the finish line together. Click here to lace up for this route!</h1>
+      <% elsif @run.start_time.past?  %>
+        <h1><%= @session %> people have laced up for this run.</h1>
+      <% elsif @run.start_time.today? %>
+        <h1>This run begins in <%= Time.at(@run.start_time - Time.now).utc.strftime("%H:%M:%S") %></h1>
       <% else %>
-      <h2><strong>This run was started <%= ((Time.now - @run.start_time) / 60 / 60 / 24).ceil %> day(s) ago</strong></h2>
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-3 text-center run-text">
-      <% if @run.end_time.future? && @run.end_time.today? %>
-      <h2><strong><%= @route.end_point %></strong></h2>
-      <h2><strong><%= ((@run.end_time - Time.now) / 60).floor %> minutes from now</strong></h2>
-      <% elsif @run.end_time.future? %>
-      <h2><strong><%= @route.end_point %></strong></h2>
-      <h2><strong>This run ends in <%= ((@run.end_time - Time.now) / 60 / 60 / 24).ceil %> day(s)</strong></h2>
-      <% else %>
-      <h2><strong>This run was ended <%= ((Time.now - @run.end_time) / 60 / 60 / 24).ceil %> day(s) ago</strong></h2>
+        <h1>This run begins on <%= @run.start_time.day %>/<%= @run.start_time.month %> </h1>
       <% end %>
     </div>
   </div>
 
-  <h2>This run was created by <%= @user.name %> [TODO: avatar here] </h2>
-
-
-
-  <ul><h1>other run details:</h1>
-    <li>run created at: <%= @run.created_at %></li>
-    <li>run updated at: <%= @run.updated_at %></li>
-  </ul>
-  <ul><h1>other route details:</h1>
-    <li>route id: <%= @run.route_id %> </li>
-  </ul>
-  <ul><h1>other user details:</h1>
-    <li>user id: <%= @run.user_id %></li>
-    <li>user avatar filepath: <%= @user.profile_picture %></li>
-  </ul>
+  <p class="text-center">This run was created by <%= @user.name %> <%= cl_image_tag current_user.profile_picture.url(:bright_face), height: 35, width: 35, crop: :fill, class: "avatar dropdown-toggle", id:"navbar-wagon-menu" %> </p>
 </div>
+
+
+
 
