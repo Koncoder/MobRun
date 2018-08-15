@@ -35,16 +35,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_144731) do
     t.index ["user_id"], name: "index_run_sessions_on_user_id"
   end
 
-  create_table "run_sessions", force: :cascade do |t|
-    t.string "start_point"
-    t.bigint "user_id"
-    t.bigint "run_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["run_id"], name: "index_run_sessions_on_run_id"
-    t.index ["user_id"], name: "index_run_sessions_on_user_id"
-  end
-
   create_table "runs", force: :cascade do |t|
     t.datetime "start_time"
     t.datetime "end_time"

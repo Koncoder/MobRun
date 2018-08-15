@@ -17,33 +17,88 @@ user1.save
 user2 = User.create(name: "Konstantin", email: "kon@email.com", password: "hunter2")
 user2.save
 
+route1 = Route.create(name: "Around Montreal", start_point: "Fonderie Darling", end_point: "Avenue Virger O", total_length: "9.12", wikiloc: "24859054")
+route1.save
+route2 = Route.create(name: "Mont Royal", start_point: "Mcintyre", end_point: "Mcintyre", total_length: "4.3", wikiloc: "12990420")
+route2.save
+route3 = Route.create(name: "Marathon", start_point: "Theme Park", end_point: "Insectarium", total_length: "41.89", wikiloc: "20821200")
+route3.save
+
 (1..100).each { |i|
   user = User.create(name: "seed#{i}", email: "seed#{i}@email.com", password: "hunter2")
   user.save
-  if i = 1
-    route = Route.create(name: "Around Montreal", start_point: "Fonderie Darling", end_point: "Avenue Virger O", total_length: "9.12", wikiloc: "24859054")
+  if i == 1
+    run = Run.new
+    run.user = user
+    run.route = route1
+    run.start_time = Time.now + 24*60*60
+    run.speed = 7
+    run.end_time = run.start_time + 3600*run.route.total_length/run.speed
+    run.save
+  end
+  if i == 2
+    run = Run.new
+    run.user = user
+    run.route = route2
+    run.start_time = Time.now + 48*60*60
+    run.speed = 8
+    run.end_time = run.start_time + 3600*run.route.total_length/run.speed
+    run.save
+  end
+  if i == 3
+    run = Run.new
+    run.user = user
+    run.route = route3
+    run.start_time = Time.now + 10*48*60*60
+    run.speed = 6
+    run.end_time = run.start_time + 3600*run.route.total_length/run.speed
+    run.save
+
+    run = Run.new
+    run.user = user
+    run.route = route1
+    run.start_time = Time.now + 2*24*60*60
+    run.speed = 8
+    run.end_time = run.start_time + 3600*run.route.total_length/run.speed
+    run.save
+  end
+  if i.between?(5, 25)
+
+    run_session = RunSession.create()
+    run_session[:user_id] = user.id
+    run_session[:start_point] = 1
+
+    run_session[:run_id] = 1
+    run_session.save
+  end
+
+  if i.between?(20, 50)
+
+    run_session = RunSession.create()
+    run_session[:user_id] = user.id
+    run_session[:start_point] = 1
+
+    run_session[:run_id] = 2
+    run_session.save
+  end
+
+  if i.between?(40, 90)
+
+    run_session = RunSession.create()
+    run_session[:user_id] = user.id
+    run_session[:start_point] = 1
+
+    run_session[:run_id] = 3
+    run_session.save
+  end
+
+  if i.between?(85, 100)
+
+    run_session = RunSession.create()
+    run_session[:user_id] = user.id
+    run_session[:start_point] = 1
+
+    run_session[:run_id] = 4
+    run_session.save
   end
 }
-
-route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port", total_length: "50", wikiloc: '24436449')
-route1.save
-route2 = Route.create(start_point: "Cafe Santropol", end_point: "Cafe Santropol", total_length: 5.25, wikiloc: '11292411')
-route2.save
-
-run1 = Run.new
-run1.user = user1
-run1.route = route1
-run1.start_time = Date.today
-run1.end_time = Date.tomorrow
-run1.save
-
-run2 = Run.new
-run2.user = user2 # user who is creating the run
-run2.route = route1
-run2.start_time = Date.tomorrow
-run2.save
-
-run_session1 = RunSession.create(user_id: user1.id, run_id: run1.id, start_point: 1)
-run_session1.save
-run_session2 = RunSession.create(user_id: user2.id, run_id: run1.id, start_point: 1)
-run_session1.save
