@@ -1,22 +1,22 @@
-<center><h1>Routes</h1></center>
+<center><h1>Select a route to run it!</h1></center>
 
 <div class="container">
   <div class="row">
-    <h1>Route Details:</h1>
-      <% @routes.each do |route| %>
-          <div class="card2">
-            <ul>
-             <u> <h3><%= link_to route.name, route_path(route) %></h3></u>
-              <li>route id: <%= route.id %> </li>
-              <li>route name: <%= route.name %></li>
-              <li>route start point: <%= route.start_point %> </li>
-              <li>route end point: <%= route.end_point %></li>
-              <li>route total length: <%= route.total_length %></li>
-            </ul>
-          <% end %>
-        <%= link_to "view all runs", runs_path %>
+    <% @routes.each do |route| %>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card">
+          <img class="card-img-top" src='https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1002f970f615e046c7c5376c46e13bef&auto=format&fit=crop&w=500&q=60' width="250" height="180" alt="Card image cap">
+          <h2><%= route.name %></h2>
+          <%= link_to "details", route_path(route) %>
+          <p>
+            <a href="#" class="fa fa-facebook"></a>
+            <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;color:red"></i>
+            <%= link_to route_path(route), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </p>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-
-
+</div>
