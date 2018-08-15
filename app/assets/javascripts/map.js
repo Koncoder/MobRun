@@ -1,9 +1,33 @@
+window.addEventListener("resize", function(event) {
+ if (window.innerWidth < 494){
+  $("iframe")[0].setAttribute("width", 0);
+  $("iframe")[0].setAttribute("height", "0");
+  $(".run-half-banner-2").css("height","0px");
+ }else if (window.innerWidth < 991) {
+  $("iframe")[0].setAttribute("width", window.innerWidth);
+  $("iframe")[0].setAttribute("height", "400");
+  $(".run-half-banner-2").css("height","300px");
+ }else{
+  $("iframe")[0].setAttribute("width", "600");
+  $("iframe")[0].setAttribute("height", "600");
+  $(".run-half-banner-2").css("height","500px");
+ }
 
-var myMap = document.getElementsByTagName('iframe')[0];
-myMap.addEventListener("load", function() {
-  console.log("cargada");
-  var graphic = document.getElementById('elevation-profile');
-  console.log($("iframe").contents().find("#elevation-profile"))
-  $("iframe").contents().find("#elevation-profile").style.border = '1px solid #000000'
-  console.log("despues");
-});
+}, false);
+
+
+window.addEventListener("load", function(event) {
+  if (window.innerWidth < 494){
+    $("iframe")[0].setAttribute("width", 0);
+    $("iframe")[0].setAttribute("height", "0");
+    $(".run-half-banner-2").css("height","0px");
+  }else if (window.innerWidth < 991) {
+    $("iframe")[0].setAttribute("width", window.innerWidth);
+    $("iframe")[0].setAttribute("height", "400");
+    $(".run-half-banner-2").css("height","300px");
+  }else{
+    $("iframe")[0].setAttribute("width", "600");
+    $("iframe")[0].setAttribute("height", "600");
+    $(".run-half-banner-2").css("height","500px");
+  }
+}, false);
