@@ -3,6 +3,7 @@
   justify-content: center;
   width: 100vw;
   height: 50vh;
+  margin-top: 4px;
 }
 
 .run-banner-text {
@@ -12,7 +13,10 @@
   flex-direction: column;
   width: 50vw;
   max-width: 50vw;
-  background: $light-gray;
+  background: $white;
+  h1 {
+    text-align: center;
+  }
 }
 
 #map-container {
