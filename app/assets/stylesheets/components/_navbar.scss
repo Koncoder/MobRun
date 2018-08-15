@@ -33,6 +33,20 @@
   justify-content: space-between;
 }
 
+.navbar-wagon-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 230px;
+
+  h6 {
+    font-size: 2.5em;
+    margin: 0;
+    padding-bottom: 10px;
+    font-family: $shoelaces
+  }
+}
+
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
