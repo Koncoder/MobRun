@@ -13,8 +13,17 @@ Route.destroy_all
 User.destroy_all
 
 user1 = User.create(name: "Michael", email: "michael@email.com", password: "hunter2")
+user1.save
 user2 = User.create(name: "Konstantin", email: "kon@email.com", password: "hunter2")
-user3 = User.create(name: "123456", email: "kont@email.com", password: "123456")
+user2.save
+
+(1..100).each { |i|
+  user = User.create(name: "seed#{i}", email: "seed#{i}@email.com", password: "hunter2")
+  user.save
+  if i = 1
+    route = Route.create(name: "Around Montreal", start_point: "Fonderie Darling", end_point: "Avenue Virger O", total_length: "9.12", wikiloc: "24859054")
+  end
+}
 
 route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port", total_length: "50")
 

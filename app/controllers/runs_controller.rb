@@ -9,6 +9,7 @@ class RunsController < ApplicationController
 
   def index
     @runs = Run.all
+    raise
   end
 
   def show

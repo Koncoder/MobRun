@@ -15,8 +15,6 @@ class RoutesController < ApplicationController
   def create
     @route = Route.new(route_params)
     # we need `user_id` to asssociate route with corresponding user
-    #@route.user = User.find(params[:user_id])
-    #@user = @route.user
     if @route.save
       redirect_to new_route_run_path(@route)
     else
@@ -36,7 +34,7 @@ class RoutesController < ApplicationController
   private
 
   def route_params
-    params.require(:route).permit(:name, :start_point, :end_point, :total_length)
+    params.require(:route).permit(:name, :start_point, :end_point, :total_length, :wikiloc)
   end
 
   def set_route
