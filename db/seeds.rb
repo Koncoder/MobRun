@@ -16,7 +16,10 @@ user1 = User.create(name: "Michael", email: "michael@email.com", password: "hunt
 user2 = User.create(name: "Konstantin", email: "kon@email.com", password: "hunter2")
 user3 = User.create(name: "123456", email: "kont@email.com", password: "123456")
 
-route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port", total_length: "50")
+route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port", total_length: "50", wikiloc: '24436449')
+route1.save
+route2 = Route.create(start_point: "Cafe Santropol", end_point: "Cafe Santropol", total_length: 5.25, wikiloc: '11292411')
+route2.save
 
 run1 = Run.new
 run1.user = user1
