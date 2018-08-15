@@ -3,6 +3,11 @@
   background-repeat: no-repeat;
     height: 500px;
     width: 100%;
+    padding: 10px 16px;
 }
 
-// parallax scroll/scrolly?
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
