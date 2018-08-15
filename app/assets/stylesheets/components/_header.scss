@@ -1,13 +1,21 @@
 .header {
   background-image: url(https://mcgillstlaurent.com/wp-content/uploads/2017/02/banner-running.jpg);
   background-repeat: no-repeat;
-    height: 500px;
-    width: 100%;
-    padding: 10px 16px;
+  height: 500px;
+  width: 100%;
+  padding: 10px 16px;
 }
 
 .sticky {
   position: fixed;
   top: 0;
   width: 100%
+}
+
+h4 {
+  font-size: 45px;
+  padding: 15px 15px;
+  text-shadow: 2px 2px #96d7a0;
+  text-decoration: underline overline;
+
 }

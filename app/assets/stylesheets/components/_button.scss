@@ -1,7 +1,10 @@
-.btn{
-  color: black;
+.newrunbutton {
+  background: transparent;
+  border-radius: 5px;
 }
-.btn:hover {
- color:#000000;
- background-color:#FFFFFF;
+.newrunbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 }
