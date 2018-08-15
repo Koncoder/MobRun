@@ -1,23 +1,20 @@
 
-<h1>Runs#show</h1>
-<p>Find me in app/views/runs/show.html.erb</p>
-<%= link_to "Add", run_run_sessions_path(@run), method: :post %>
-<span><%= @session %></span>
 
 <div class="run-half-banner">
   <div class="run-banner-text">
   <h1>Let's run <%= @route.name %>!</h1><p>(<%= @route.total_length %>km max)</p>
+  <%= link_to "Join", run_run_sessions_path(@run), method: :post, class: "btn btn-primary btn-lg" %>
+  <span><%= @session %></span>
   </div>
-  <div id="map-container"></div>
+  <iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=19439921&measures=on&title=off&near=off&images=off&maptype=M" width="500" height="400"></iframe><div style="background-color:#red;color:#777;font-size:11px;line-height:16px;">Powered by <a style="color:#06d;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
 </div>
-
 
 <div class="container run-container">
   <div class="row">
     <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-3 text-center run-text">
       <% if @run.start_time.future? && @run.start_time.today? %>
       <h2><strong><%= @route.start_point %></strong></h2>
-      <h2><strong><%= ((@run.start_time - Time.now) / 60).floor %> minutes from now</strong></h2>
+      <h2><strong><%= Time.at(@run.start_time - Time.now).utc.strftime("%H:%M:%S") %> minutes from now</strong></h2>
       <% elsif @run.start_time.future? %>
       <h2><strong><%= @route.start_point %></strong></h2>
       <h2><strong>This run starts in <%= ((@run.start_time - Time.now) / 60 / 60 / 24).ceil %> day(s)</strong></h2>

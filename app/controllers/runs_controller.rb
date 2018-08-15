@@ -69,7 +69,7 @@ class RunsController < ApplicationController
   end
 
   def end_time(run)
-    time = run.route.total_length * 1000 / run.speed
+    time = run.route.total_length * 3600 / run.speed
     return run.start_time + time.seconds
   end
 end

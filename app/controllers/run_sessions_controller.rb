@@ -6,7 +6,6 @@ class RunSessionsController < ApplicationController
   end
 
   def new
-    raise
   end
 
   def create

@@ -12,10 +12,11 @@
   <div class="row">
     <% @runs.each do |run| %>
       <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card">
+        <a href='/runs/<%= run.id %>' class="run-details-link"><div class="card">
           <img class="card-img-top" src='https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1002f970f615e046c7c5376c46e13bef&auto=format&fit=crop&w=500&q=60' width="250" height="180" alt="Card image cap">
           <h2><%= run.route.name %></h2>
-          <%= link_to "details", run_path(run) %>
+          <p><%= run.speed %> km/h</p>
+          <p><%= run.start_time %></p>
           <p>
             <a href="#" class="fa fa-facebook"></a>
             <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;color:red"></i>
@@ -23,7 +24,7 @@
               <i class="fas fa-trash-alt"></i>
             <% end %>
           </p>
-        </div>
+        </div></a>
       </div>
     <% end %>
   </div>
