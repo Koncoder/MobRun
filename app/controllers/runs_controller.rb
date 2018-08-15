@@ -13,6 +13,7 @@ class RunsController < ApplicationController
 
   def show
     @run = Run.find(params[:id])
+    @session = RunSession.where(run_id: params[:id]).count
   end
 
   def new

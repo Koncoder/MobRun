@@ -1,3 +1,9 @@
+
+<h1>Runs#show</h1>
+<p>Find me in app/views/runs/show.html.erb</p>
+<%= link_to "Add", run_run_sessions_path(@run), method: :post %>
+<span><%= @session %></span>
+
 <div class="run-half-banner">
   <div class="run-banner-text">
   <h1>Let's run <%= @route.name %>!</h1><p>(<%= @route.total_length %>km max)</p>
