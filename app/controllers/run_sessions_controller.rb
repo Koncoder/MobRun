@@ -14,6 +14,8 @@ class RunSessionsController < ApplicationController
     run_session[:run_id] = params[:run_id]
     run_session[:start_point] = 1
     run_session.save
+
+    redirect_to run_path(Run.find(run_session[:run_id]))
   end
 
   def edit
