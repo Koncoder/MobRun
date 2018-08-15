@@ -25,7 +25,10 @@ user2.save
   end
 }
 
-route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port", total_length: "50")
+route1 = Route.create(start_point: "Mt Royal", end_point: "Old Port", total_length: "50", wikiloc: '24436449')
+route1.save
+route2 = Route.create(start_point: "Cafe Santropol", end_point: "Cafe Santropol", total_length: 5.25, wikiloc: '11292411')
+route2.save
 
 run1 = Run.new
 run1.user = user1
@@ -40,7 +43,7 @@ run2.route = route1
 run2.start_time = Date.tomorrow
 run2.save
 
-session1 = RunSession.new
-session1.user = user2 # user who is participating
-session1.run = run1
-session1.save
+run_session1 = RunSession.create(user_id: user1.id, run_id: run1.id, start_point: 1)
+run_session1.save
+run_session2 = RunSession.create(user_id: user2.id, run_id: run1.id, start_point: 1)
+run_session1.save

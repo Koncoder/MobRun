@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_154855) do
+ActiveRecord::Schema.define(version: 2018_08_15_144731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2018_08_14_154855) do
     t.integer "total_length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "wikiloc"
+  end
+
+  create_table "run_sessions", force: :cascade do |t|
+    t.string "start_point"
+    t.bigint "user_id"
+    t.bigint "run_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["run_id"], name: "index_run_sessions_on_run_id"
+    t.index ["user_id"], name: "index_run_sessions_on_user_id"
   end
 
   create_table "run_sessions", force: :cascade do |t|

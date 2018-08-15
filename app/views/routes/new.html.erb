@@ -6,8 +6,10 @@
       <div class="col-xs-12 col-sm-4 col-sm-offset-4">
 
         <%= simple_form_for(@route) do |f| %>
+          <%= f.input :name %>
           <%= f.input :start_point %>
           <%= f.input :end_point %>
+          <%= f.input :wikiloc %>
           <%= f.input :total_length, label: "Total length in km" %>
           <%= f.submit "Add route", class: "btn btn-primary"%>
         <% end %>
