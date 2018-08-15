@@ -1,5 +1,5 @@
 <div class="form-group col-xs-12 col-sm-offset-4 col-sm-4">
-  <h3>Choose a start time and a pace for <span class="orange-bold-text"><%= @route.name %></span></h3>
+  <h2 class="text-center">Choose a start time and a pace for<br><span class="orange-bold-text"><%= @route.name %></span></h2>
   <%= simple_form_for [@route, @run] do |f| %>
     <%= f.input :start_time %>
     <%= f.input :speed, label: "Pace (km/h)" %>
@@ -7,5 +7,3 @@
     <%= f.submit 'Add route' %>
   <% end %>
 </div>
-
-<iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=19439921&measures=on&title=off&near=off&images=off&maptype=M" width="500" height="400"></iframe><div style="background-color:#red;color:#777;font-size:11px;line-height:16px;">Powered by <a style="color:#06d;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
