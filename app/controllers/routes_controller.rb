@@ -16,7 +16,6 @@ class RoutesController < ApplicationController
     @route = Route.new(route_params)
     # we need `user_id` to asssociate route with corresponding user
     if @route.save
-      raise
       redirect_to new_route_run_path(@route)
     else
       render :new
