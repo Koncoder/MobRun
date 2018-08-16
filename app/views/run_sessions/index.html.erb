@@ -11,10 +11,10 @@
               <p><%= run.speed %> km/h</p>
               <p><%= run.start_time.utc.strftime("%H:%M") %> to <%= run.end_time.utc.strftime("%H:%M") %></p>
               <p><%= run.participants.count %></p>
-              <a href="#" class="fa fa-facebook"></a>
+              <a href="https://www.facebook.com/" class="fab fa-facebook-f"></i>
               <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;color:red"></i>
-              <%= link_to run_path(run), method: :delete do %>
-                <i class="fas fa-trash-alt"></i>
+            <%= link_to run_path(run), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
             <% end %>
           </div></a>
         </div>
