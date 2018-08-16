@@ -12,9 +12,9 @@ Run.destroy_all
 Route.destroy_all
 User.destroy_all
 
-user1 = User.create(name: "Michael", email: "michael@email.com", password: "hunter2")
+user1 = User.create(name: "Michael", email: "michael@email.com", password: "hunter2", remote_profile_picture_url: "https://res.cloudinary.com/dafxl6kch/image/upload/v1534437580/michael.png" )
 user1.save
-user2 = User.create(name: "Konstantin", email: "kon@email.com", password: "hunter2")
+user2 = User.create(name: "Konstantin", email: "kon@email.com", password: "hunter2", profile_picture: "http://res.cloudinary.com/dafxl6kch/image/upload/v1534437524/konstantin_2.jpg" )
 user2.save
 
 route1 = Route.create(name: "Around Montreal", start_point: "Fonderie Darling", end_point: "Avenue Virger O", total_length: "9.12", wikiloc: "24859054")
