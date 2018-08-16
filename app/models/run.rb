@@ -12,4 +12,12 @@ class Run < ApplicationRecord
   def self.upcoming_runs(user)
     user.runs.where("end_time > ?", Time.now)
   end
+
+  def self.completed_runs(user)
+    user.runs.where("end_time < ?", Time.now)
+  end
+
+  def self.all_upcoming_runs
+    Run.where("end_time > ?", Time.now)
+  end
 end
