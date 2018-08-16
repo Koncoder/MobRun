@@ -21,7 +21,7 @@ route1 = Route.create(name: "Around Montreal", start_point: "Fonderie Darling", 
 route1.save
 route2 = Route.create(name: "Mont Royal", start_point: "Mcintyre", end_point: "Mcintyre", total_length: "4.3", wikiloc: "12990420")
 route2.save
-route3 = Route.create(name: "Marathon", start_point: "Theme Park", end_point: "Insectarium", total_length: "41.89", wikiloc: "20821200")
+route3 = Route.create(name: "Marathon", start_point: "Theme Park", end_point: "Insectarium", total_length: "41.89", wikiloc: "2082120")
 route3.save
 
 (1..100).each { |i|
