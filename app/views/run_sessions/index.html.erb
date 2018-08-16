@@ -1,2 +1,14 @@
 <h1>Sessions#index</h1>
 <p>Find me in app/views/sessions/index.html.erb</p>
+
+<h1>You have laced up for <%= @upcoming_runs.count %> upcoming runs</h1>
+
+<ul><% @upcoming_runs.each do |run| %>
+      <a href="/run_sessions/<%= RunSession.where(run_id: run.id, user_id: current_user).first.id %>">
+      <li><%= run.participants.count %> people are running <%= run.route.name %> at <%= run.speed %>km/h, reaching <%= run.route.end_point %> at <%= run.end_time.utc.strftime("%H:%M") %>
+        <% if run.end_time.today? %>
+        today!
+        <% end %>
+      </li></a>
+     <% end %>
+</ul>
