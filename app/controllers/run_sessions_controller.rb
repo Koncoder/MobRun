@@ -2,6 +2,7 @@ class RunSessionsController < ApplicationController
   def index
     @run_sessions = RunSession.all
     @upcoming_runs = Run.upcoming_runs(current_user)
+    @completed_runs = Run.completed_runs(current_user)
   end
 
   def show
