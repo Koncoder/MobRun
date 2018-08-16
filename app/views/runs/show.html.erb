@@ -1,21 +1,3 @@
-Skip to content
-
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @sarneijim Sign out
-0
-1 0 Koncoder/MobRun
- Code  Issues 0  Pull requests 1  Projects 0  Wiki  Insights
-MobRun/app/views/runs/show.html.erb
-129ef37  15 minutes ago
-@sarneijim sarneijim map
-@michaelbelzil @sarneijim @Koncoder
-
-40 lines (30 sloc)  1.93 KB
 
 <div class="run-banner">
   <div class="run-half-banner run-half-banner-1">
@@ -32,7 +14,6 @@ MobRun/app/views/runs/show.html.erb
   </div>
 </div>
 
-
 <div class="container run-container">
   <p class="text-right">This run was created by <%= @user.name %> <%= cl_image_tag current_user.profile_picture.url(:bright_face), height: 35, width: 35, crop: :fill, class: "avatar dropdown-toggle", id:"navbar-wagon-menu" %> </p>
   <div class="row">
@@ -44,10 +25,9 @@ MobRun/app/views/runs/show.html.erb
       <% elsif @run.start_time.today? %>
         <h1>This run begins in <%= Time.at(@run.start_time - Time.now).utc.strftime("%H:%M:%S") %></h1>
       <% else %>
-        <h1>This run begins on <%= @run.start_time.day %>/<%= @run.start_time.month %> </h1>
+        <h1>This run begins on <span class="orange-bold-text"><%= @run.start_time.day %>/<%= @run.start_time.month %></span> </h1>
       <% end %>
     </div>
   </div>
   <hr>
-
 </div>
