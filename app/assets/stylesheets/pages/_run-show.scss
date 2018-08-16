@@ -1,4 +1,33 @@
+.run-banner{
+  display: flex;
+  align-items: center;
+  background: #eeeef9;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eeeef9, #f7f7f7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #eeeef9, #f7f7f7)
+}
+.run-half-banner {
+  display: flex;
+  justify-content: center;
+}
+.run-half-banner-1 {
+  width: Calc(100% - 600px);
+}
+.run-half-banner-2 {
+  overflow:hidden;
+  height:500px;
+}
 
+.run-banner-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 5px;
+  h1 {
+    text-align: center;
+    margin-top: auto;
+  }
+}
 
 #map-container {
   height: 50vh;
@@ -14,3 +43,13 @@
 }
 
 
+// Mobile device
+
+@media only screen and (max-width: 991px){
+  .run-banner{
+    flex-direction: column;
+  }
+  .run-half-banner-1 {
+    width:100%;
+  }
+}
