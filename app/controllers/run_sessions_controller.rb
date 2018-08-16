@@ -5,6 +5,8 @@ class RunSessionsController < ApplicationController
   end
 
   def show
+    @run_session = RunSession.find(params[:id])
+    @run = Run.find(@run_session.run_id)
   end
 
   def new
