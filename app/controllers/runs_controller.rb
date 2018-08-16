@@ -31,7 +31,7 @@ class RunsController < ApplicationController
       run_session = RunSession.create()
       run_session[:user_id] = current_user.id
       run_session[:run_id] = @run.id
-      run_session[:start_point] = 1
+      run_session[:start_point] = 0
       run_session.save
       redirect_to run_path(@run)
     else

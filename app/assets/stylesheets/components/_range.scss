@@ -1,0 +1,42 @@
+.range-banner{
+  display:flex;
+  justify-content: stretch;
+  align-items: center;
+
+}
+.add-range{
+  width: Calc(100% - 70px);
+  text-align: center;
+}
+.graphic-range-ext, .graphic-range{
+  width: 30px;
+  margin: 20px;
+  min-height:360px;
+}
+.graphic-range{
+  background-color: green;
+  margin: 0;
+  width:27px;
+}
+.graphic-range-ext{
+  display: flex;
+  align-items: end;
+  flex-direction: column-reverse;
+  border: 1px solid #fa8231;
+}
+.add-range{
+  .form-group{
+    flex-direction: row;
+    .form-control{
+      display:inline;
+      width:auto;
+      margin-top: 20px;
+      display: inline;
+      width: 110px;
+      margin: 20px 0 0 20px;
+    }
+  }
+}
+.number-range{
+  align-self: start;
+}
