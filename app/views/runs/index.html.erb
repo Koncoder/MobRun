@@ -7,9 +7,44 @@
 
   <center>
     <hr>
-    <h1 class="orange-bold-text">Upcoming Runs</h4>
+    <h3 class="orange-bold-text">Upcoming Runs</h3>
     <hr>
   </center>
+<!--
+<div class="row">
+  <div class="col-2">
+    <input type="text" class="form-control" placeholder=".col-2">
+  </div>
+  <div class="col-3">
+    <input type="text" class="form-control" placeholder=".col-3">
+  </div>
+  <div class="col-4">
+    <input type="text" class="form-control" placeholder=".col-4">
+  </div>
+</div> -->
+
+<%= form_tag runs_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a run"
+  %>
+
+   <%= number_field_tag :lower_bound,
+    params[:lower_bound],
+    class: "form-control",
+    placeholder: "Find a run"
+  %>
+
+   <%= number_field_tag :upper_bound,
+    params[:upper_bound],
+    class: "form-control",
+    placeholder: "Find a run"
+  %>
+
+  <%= submit_tag "Searchy" %>
+
+<% end %>
 
 
 <div class="col-container">
