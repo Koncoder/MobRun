@@ -1,32 +1,24 @@
-<%= link_to "Back to Routes", routes_path, class: "btn btn-success btn-lg" %>
+
+<div class="back">
+  <%= link_to "Back to Routes", routes_path%>
+</div>
 <div class="col-container run-container">
   <div class="row">
     <div class="col-xs-12 text-center run-text">
-  <h1 class="orange-bold-text"><%= @route.name %></h1>
-  <%= link_to "Lead this run", new_route_run_path(@route), class: "btn btn-primary btn-lg" %>
-</div>
-</div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 text-center run-text">
-      <h1><%= @route.start_point %><br><span class="orange-bold-text"><%= @route.total_length %>km</span><br><%= @route.end_point %></h1>
-    </div>
-    <div class="col-xs-12 col-sm-6 text-center run-text">
-      <iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=19439921&measures=on&title=off&near=off&images=off&maptype=M" width="500" height="400"></iframe><div style="background-color:#red;color:#777;font-size:11px;line-height:16px;">Powered by <a style="color:#06d;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
+      <h1 class="orange-bold-text"><%= @route.name %></h1>
+      <%= link_to "Lead this run", new_route_run_path(@route), class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 </div>
-
-<div class="container run-container">
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8 text-center run-text">
-     <h1 class="orange-bold-text"><%= @route.name %></h1>
-     <%= link_to "Lead this run", new_route_run_path(@route), class: "btn btn-primary btn-lg" %>
+<div class="run-banner">
+  <div class="run-half-banner run-half-banner-1">
+    <div class="run-banner-text">
+      <h1><%= @route.start_point %><br><span class="orange-bold-text"><%= @route.total_length %>km</span><br><%= @route.end_point %></h1>
     </div>
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8 text-center run-text">
-      <iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=19439921&measures=on&title=off&near=off&images=off&maptype=M" width="500" height="400"></iframe><div style="background-color:#red;color:rgba(0,0,0,0);font-size:11px;line-height:16px;">Powered by <a style="color:rgba(0,0,0,0);font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
+  </div>
+  <div class="run-half-banner run-half-banner-2">
+    <div class="run-map-inside">
+      <iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=<%=@route.wikiloc%>&measures=on&title=off&near=off&images=off&maptype=M" width="600" height="600"></iframe><div style="background-color:#fff;color:#777;font-size:11px;line-height:16px;">Powered by <a style="color:#06d;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
     </div>
-
-
   </div>
 </div>
