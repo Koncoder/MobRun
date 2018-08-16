@@ -1,16 +1,22 @@
 <div class="navbar-wagon">
+
+  <div class="navbar-wagon-left">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
     <%= image_tag "lace_logo.png", alt: "Laceup Icon" %>
   </a>
 
+  <h6 class="orange-bold-text">Laces</h6>
+
   <!-- Right Navigation -->
+  </div>
+
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to "Lace up!", runs_path, class: "navbar-wagon-item navbar-wagon-link"%>
+    <%= link_to "Find a run", runs_path, class: "navbar-wagon-item navbar-wagon-link"%>
     <%= link_to "Create a run", routes_url, method: :get, class: "navbar-wagon-item navbar-wagon-link"%>
     <%= link_to "Create a route", new_route_path, class: "navbar-wagon-item navbar-wagon-link"%>
-    <%= link_to "Favorite runs", new_route_path, class: "navbar-wagon-item navbar-wagon-link"%>
+    <%= link_to "My runs", run_sessions_path, class: "navbar-wagon-item navbar-wagon-link"%>
 
     <% if not user_signed_in? %>
       <%= link_to "Sign-Up",  new_user_registration_path, class: "btn btn-primary btn-xs",id: "navbar-big-btn"%>

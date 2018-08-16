@@ -1,8 +1,13 @@
 class RunSessionsController < ApplicationController
   def index
+    @run_sessions = RunSession.all
+    @upcoming_runs = Run.upcoming_runs(current_user)
+    @completed_runs = Run.completed_runs(current_user)
   end
 
   def show
+    @run_session = RunSession.find(params[:id])
+    @run = Run.find(@run_session.run_id)
   end
 
   def new

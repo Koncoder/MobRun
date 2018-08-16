@@ -9,11 +9,12 @@ class RunsController < ApplicationController
 
   def index
     @runs = Run.all
+    @all_upcoming_runs = Run.all_upcoming_runs
   end
 
   def show
     @run = Run.find(params[:id])
-    @session = RunSession.where(run_id: params[:id]).count
+    @session = RunSession.where(run_id: params[:id]).count #WON'T THIS RETURN 1 BECAUSE OF .count???
   end
 
   def new

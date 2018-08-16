@@ -1,2 +1,48 @@
-<h1>Sessions#index</h1>
-<p>Find me in app/views/sessions/index.html.erb</p>
+<div class="padding-top">
+  <h1 class="text-center">You have laced up for<br><span class="orange-bold-text"> <%= @upcoming_runs.count %> runs</span></h1>
+  <div class="main-container">
+    <div class="row">
+      <% @upcoming_runs.each do |run| %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href="/run_sessions/<%= RunSession.where(run_id: run.id, user_id: current_user).first.id %>" class="run-details-link">
+          <div class="card<%= ' orange-border' if run.start_time.today? %>">
+            <img class="card-img-top" src='https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1002f970f615e046c7c5376c46e13bef&auto=format&fit=crop&w=500&q=60' width="250" height="180" alt="Card image cap">
+              <h3><%= run.route.name %></h3>
+              <p><%= run.speed %> km/h</p>
+              <p><%= run.start_time.utc.strftime("%H:%M") %> to <%= run.end_time.utc.strftime("%H:%M") %></p>
+              <p><%= run.participants.count %></p>
+              <a href="#" class="fa fa-facebook"></a>
+              <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;color:red"></i>
+              <%= link_to run_path(run), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div></a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="padding-top">
+  <h1 class="text-center">You have finished <br><span class="orange-bold-text"> <%= @completed_runs.count %> runs</span></h1>
+  <div class="main-container">
+    <div class="row">
+      <% @completed_runs.each do |run| %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+        <a href="/run_sessions/<%= RunSession.where(run_id: run.id, user_id: current_user).first.id %>" class="run-details-link">
+          <div class="card<%= ' orange-border' if run.start_time.today? %>">
+            <img class="card-img-top" src='https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1002f970f615e046c7c5376c46e13bef&auto=format&fit=crop&w=500&q=60' width="250" height="180" alt="Card image cap">
+              <h3><%= run.route.name %></h3>
+              <p><%= run.speed %> km/h</p>
+              <p><%= run.start_time.utc.strftime("%H:%M") %> to <%= run.end_time.utc.strftime("%H:%M") %></p>
+              <p><%= run.participants.count %></p>
+              <a href="#" class="fa fa-facebook"></a>
+              <i class="fa fa-heart" aria-hidden="true" style="font-size:20px;color:red"></i>
+              <%= link_to run_path(run), method: :delete do %>
+                <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div></a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
