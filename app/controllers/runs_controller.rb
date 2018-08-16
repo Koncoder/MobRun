@@ -9,6 +9,7 @@ class RunsController < ApplicationController
 
   def index
     @runs = Run.all
+    @all_upcoming_runs = Run.all_upcoming_runs
   end
 
   def show
