@@ -3,14 +3,14 @@
     <div class="run-banner-text">
       <h1><span class="orange-bold-text"><%= @session %> people</span><br>are lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
       <% if @run.end_time.future? %>
-      <%= link_to "Count me in", run_run_sessions_path(@run), method: :post, class: "btn btn-primary btn-lg" %>
+        <%= link_to "Count me in", new_run_run_session_path(@run), class: "btn btn-primary btn-lg" %>
       <% end %>
     </div>
   </div>
   <div class="run-half-banner run-half-banner-2">
-    <div class="run-map-inside">
+    <div class="run-map-inside" id = "run-map-inside">
 
-      <iframe frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=<%=@run.route.wikiloc%>&measures=on&title=off&near=off&images=off&maptype=M" width="600" height="600"></iframe><div style="background-color:#fff;color:#777;font-size:11px;line-height:16px;">Powered by <a style="color:#06d;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
+      <iframe id="iframe" frameBorder="0" scrolling="no" src="https://es.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=<%=@run.route.wikiloc%>&measures=on&title=off&near=off&images=off&maptype=M" width="600" height="600"></iframe><div style="background-color:#fff;color:#777;font-size:11px;line-height:16px;">Powered by <a style="color:#06d;font-size:11px;line-height:16px;" target="_blank" href="https://es.wikiloc.com">Wikiloc</a></div>
     </div>
   </div>
 </div>

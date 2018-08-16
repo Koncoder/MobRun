@@ -23,5 +23,4 @@ function map(){
       $(".run-half-banner-2").css("height","400px");
     }
   }
-
 }
