@@ -1,5 +1,9 @@
 <h1>Sessions#show</h1>
 <p>Find me in app/views/sessions/show.html.erb</p>
 
-<%= @run.participants.count %> people are running <%= @run.route.name %> at <%= @run.speed %>km/h, reaching <%= @run.route.end_point %> at <%= @run.end_time.utc.strftime("%H:%M") %>
-        <%= @run.end_time.today? %>
+<%= @run_session.attributes %><hr>
+
+
+You and <%= @run.participants.count-1 %> other people will cross the finish line at <%= @run.route.end_point %> at <%= @run.end_time.utc.strftime("%H:%M") %>
+
+Join the group at (start point:)<%= @run_session.start_point %>
