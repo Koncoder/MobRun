@@ -22,7 +22,6 @@
 </div>
 
 <div class="container run-container">
-  <p class="text-right">This run was created by <%= @user.name %> <%= cl_image_tag @user.profile_picture.url(:bright_face), height: 35, width: 35, crop: :fill, class: "avatar dropdown-toggle", id:"navbar-wagon-menu" %> </p>
   <div class="row">
     <div class="col-xs-12 col-sm-offset-1 col-sm-10 text-center run-text">
        <% if @run.end_time.past?  %>
