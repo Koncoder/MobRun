@@ -12,6 +12,17 @@ class RunSessionsController < ApplicationController
       @total +=km
     end
     @average= (@average*100).to_i / 100.0
+    if @total < 50
+      @goal = 50
+    elsif @total < 100
+      @goal = 100
+    elsif @total < 500
+      @goal = 500
+    elsif @total < 1000
+      @goal = 1000
+    else
+      @goal = 1000000
+    end
   end
 
   def show
