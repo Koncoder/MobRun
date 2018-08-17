@@ -1,10 +1,14 @@
 <div class="run-banner">
   <div class="run-half-banner run-half-banner-1">
     <div class="run-banner-text">
-      <h1><span class="orange-bold-text"><%= @session %> people</span><br>are lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
-      <% if @run.end_time.future? %>
-        <%= link_to "Count me in", new_run_run_session_path(@run), class: "btn btn-primary btn-lg" %>
-      <% end %>
+      <% unless @done%>
+        <h1><span class="orange-bold-text"><%= @session %> people</span><br>are lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
+        <% if @run.end_time.future? %>
+          <%= link_to "Count me in", new_run_run_session_path(@run), class: "btn btn-primary btn-lg" %>
+        <% end %>
+      <%else%>
+        <h1><span class="orange-bold-text">You and <%= @session - 1 %> people</span><br>are lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
+      <%end%>
     </div>
   </div>
   <div class="run-half-banner run-half-banner-2">

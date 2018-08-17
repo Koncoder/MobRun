@@ -134,6 +134,8 @@ h1.heading {
 .col-container {
   display: flex;
   width: 100%;
+  text-align:center;
+  justify-content:center;
 }
 .col {
   flex: 1;
