@@ -2,12 +2,14 @@
   <div class="run-half-banner run-half-banner-1">
     <div class="run-banner-text">
       <% unless @done%>
-        <h1><span class="orange-bold-text"><%= @session %> people</span><br>are lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
         <% if @run.end_time.future? %>
+          <h1><span class="orange-bold-text"><%= pluralize(@session, 'person') %></span><br>will be lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
           <%= link_to "Count me in", new_run_run_session_path(@run), class: "btn btn-primary btn-lg" %>
+        <% else %>
+
         <% end %>
       <%else%>
-        <h1><span class="orange-bold-text">You and <%= @session - 1 %> people</span><br>are lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
+        <h1><span class="orange-bold-text">You <% if @session-1 > 0 %> and <%= pluralize(@session-1, 'other') %> <% end %> </span><br>will be lacing up for<br><span class="orange-bold-text"><%= @route.name %></span><br>[<%= @route.total_length %>km at <%= @run.speed %>km/h]</h1>
       <%end%>
     </div>
   </div>
@@ -22,11 +24,11 @@
 <div class="container run-container">
   <p class="text-right">This run was created by <%= @user.name %> <%= cl_image_tag @user.profile_picture.url(:bright_face), height: 35, width: 35, crop: :fill, class: "avatar dropdown-toggle", id:"navbar-wagon-menu" %> </p>
   <div class="row">
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8 text-center run-text">
+    <div class="col-xs-12 col-sm-offset-1 col-sm-10 text-center run-text">
        <% if @run.end_time.past?  %>
-        <h1><%= @session %> people crossed the finish line together.</h1>
+        <h1><span class="orange-bold-text"><%= pluralize(@session, 'person') %></span> crossed the finish line<% if @session > 1 %> together<% end %>.</h1>
       <% elsif @run.start_time.past?  %>
-        <h1><%= @session %> people are on their way to <span class="orange-bold-text"><%= @route.end_point %></span> now!</h1>
+        <h1><%= pluralize(@session, 'person') %> will be crossing the finish line at <span class="orange-bold-text"><%= @route.end_point %></span></h1>
       <% elsif @run.start_time.today? %>
         <h1>This run begins in <%= Time.at(@run.start_time - Time.now).utc.strftime("%H:%M:%S") %></h1>
       <% else %>
