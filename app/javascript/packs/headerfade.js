@@ -1,4 +1,3 @@
-
 const fade = () => {
   var myElement = $('.header');
 
@@ -10,4 +9,4 @@ const fade = () => {
   });
 
 }
-export default fade;
+export { fade };

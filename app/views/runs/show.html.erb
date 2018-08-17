@@ -30,7 +30,7 @@
       <% elsif @run.start_time.past?  %>
         <h1><%= pluralize(@session, 'person') %> will be crossing the finish line at <span class="orange-bold-text"><%= @route.end_point %></span></h1>
       <% elsif @run.start_time.today? %>
-        <h1>This run begins in <%= Time.at(@run.start_time - Time.now).utc.strftime("%H:%M:%S") %></h1>
+        <h1>This run begins in<br><span class="orange-text" id="countdown"></span></h1>
       <% else %>
         <h1>This run begins on <span class="orange-bold-text"><%= @run.start_time.day %>/<%= @run.start_time.month %></span> </h1>
       <% end %>
@@ -38,3 +38,16 @@
   </div>
   <hr>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (){
+    function getAndDisplayCountdown() {
+      var countdownString = countdown( new Date("<%= @run.start_time.to_s %>") ).toString();
+      var element = document.getElementById("countdown");
+      element.innerHTML = countdownString;
+
+    }
+
+    setInterval(getAndDisplayCountdown, 1000)
+  })
+</script>
