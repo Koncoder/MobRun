@@ -7,10 +7,45 @@
 
   <center>
     <hr>
-    <h1 class="orange-bold-text">Upcoming Runs</h4>
+    <h3 class="orange-bold-text">Upcoming Runs</h3>
     <hr>
   </center>
 
+
+<div class="form-container">
+  <form class="form-inline">
+    <div class="row">
+
+      <div class="col-sm-3">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search by run name" name="query" style="background: #ffeed1">
+        </div>
+      </div>
+
+      <div class="sliders">
+        <div class="col col-sm-3">
+            <div class="slidecontainer">
+              <input type="range" min="1" max="30" value="<%= params[:lower_bound].present? ? params[:lower_bound] : 1 %>" class="slider" id="lower_range" name="lower_bound">
+              <p>Minimum pace: <span id="slider1"></span>km/h</p>
+            </div>
+
+        </div>
+
+        <div class="col col-sm-3">
+            <div class="slidecontainer">
+              <input type="range" min="1" max="30" value="<%= params[:upper_bound].present? ? params[:upper_bound] : 30 %>" class="slider" id="upper_range" name="upper_bound">
+              <p>Maximum pace: <span id="slider2"></span>km/h</p>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-3">
+        <input type="submit" class="btn btn-warning">
+      </div>
+    </div>
+  </form>
+</div>
 
 <div class="col-container">
   <div class="row">

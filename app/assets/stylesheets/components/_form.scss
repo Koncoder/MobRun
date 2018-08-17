@@ -5,6 +5,55 @@
 .big-wrapper {
   margin-bottom: 10vh;
 }
+
+.form-container {
+  text-align: center;
+  margin: 10px 0px 0px 70px;
+  padding-right: 20px;
+}
+
+.sliders {
+  color: gray;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 25%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 128px;
+    height: 100px;
+    border: 0;
+    background: url('shoe.png');
+    cursor: pointer;
+    margin-bottom: 58px;
+}
+
+.slider::-moz-range-thumb {
+    width: 128px;
+    height: 100px;
+    border: 0;
+    background: url('shoe.png');
+    cursor: pointer;
+    margin-bottom: 58px;
+}
+
 .run_start_time{
   div{
     display:flex;
@@ -18,4 +67,9 @@
 }
 #run_start_time_1i{
   width: 260px;
+}
+.run_start_time{
+  div{
+    color: $white;
+  }
 }

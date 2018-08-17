@@ -8,8 +8,25 @@ class RunsController < ApplicationController
 
 
   def index
+
     @runs = Run.all
+
+
+    if params[:query].present?
+      @runs = @runs.search_by_route_name(params[:query])
+    end
+
+    if params[:lower_bound].present?
+      @runs = @runs.search_by_pace_faster_than(params[:lower_bound])
+    end
+
+    if params[:upper_bound].present?
+      @runs = @runs.search_by_pace_slower_than(params[:upper_bound])
+    end
+
+
     @all_upcoming_runs = Run.all_upcoming_runs
+
   end
 
   def show
