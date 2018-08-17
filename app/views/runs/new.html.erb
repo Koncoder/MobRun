@@ -1,7 +1,7 @@
 <div class="form-group col-xs-12 col-sm-offset-3 col-sm-6">
   <h2 class="text-center">Choose a start time and a pace for<br><span class="orange-bold-text"><%= @route.name %></span></h2>
   <%= simple_form_for [@route, @run] do |f| %>
-    <%= f.input :start_time, as: :date %>
+    <%= f.input :start_time %>
     <%= f.input :speed, label: "Pace (km/h)" %>
     <%#= f.input :end_time %>
     <div class="text-center">
