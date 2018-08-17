@@ -1,9 +1,9 @@
 import "bootstrap";
-import countdown from "countdown";
-import fade from "./headerfade";
+
+import { fade } from "./headerfade";
+import { countdown } from "countdown";
+import { initSliderLogic } from  "../components/slider";
+
 fade();
 window.countdown = countdown;
-import { fade } from "./headerfade";
-import { initSliderLogic } from  "../components/slider";
 initSliderLogic();
-
