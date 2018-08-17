@@ -10,42 +10,42 @@
     <h3 class="orange-bold-text">Upcoming Runs</h3>
     <hr>
   </center>
-<!--
-<div class="row">
-  <div class="col-2">
-    <input type="text" class="form-control" placeholder=".col-2">
-  </div>
-  <div class="col-3">
-    <input type="text" class="form-control" placeholder=".col-3">
-  </div>
-  <div class="col-4">
-    <input type="text" class="form-control" placeholder=".col-4">
-  </div>
-</div> -->
 
-<%= form_tag runs_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a run"
-  %>
 
-   <%= number_field_tag :lower_bound,
-    params[:lower_bound],
-    class: "form-control",
-    placeholder: "Find a run"
-  %>
+<div class="form-container">
+  <form class="form-inline">
+    <div class="row">
 
-   <%= number_field_tag :upper_bound,
-    params[:upper_bound],
-    class: "form-control",
-    placeholder: "Find a run"
-  %>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search by run name" name="query" style="background: #ffeed1">
+        </div>
+      </div>
 
-  <%= submit_tag "Searchy" %>
+      <div class="sliders">
+        <div class="col col-sm-3">
+            <div class="slidecontainer">
+              <input type="range" min="1" max="30" value="<%= params[:lower_bound].present? ? params[:lower_bound] : 1 %>" class="slider" id="lower_range" name="lower_bound">
+              <p>Minimum pace: <span id="slider1"></span>km/h</p>
+            </div>
 
-<% end %>
+        </div>
 
+        <div class="col col-sm-3">
+            <div class="slidecontainer">
+              <input type="range" min="1" max="30" value="<%= params[:upper_bound].present? ? params[:upper_bound] : 30 %>" class="slider" id="upper_range" name="upper_bound">
+              <p>Maximum pace: <span id="slider2"></span>km/h</p>
+            </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-3">
+        <input type="submit" class="btn btn-warning">
+      </div>
+    </div>
+  </form>
+</div>
 
 <div class="col-container">
   <div class="row">
