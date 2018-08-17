@@ -15,7 +15,7 @@ class RunsController < ApplicationController
   def show
     @run = Run.find(params[:id])
     filter = RunSession.where(run_id: params[:id])
-    @session = filter.count #WON'T THIS RETURN 1 BECAUSE OF .count???
+    @session = filter.count
     @done = filter.where(user_id: current_user.id).exists?
   end
 
