@@ -51,7 +51,7 @@
 <div class="container">
   <div class="row">
     <% @all_upcoming_runs.each do |run| %>
-      <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-6 col-md-4">
         <a href='/runs/<%= run.id %>' class="run-details-link">
           <div class="card<% if current_user %><%= ' orange-border' if current_user.has_this_run_today?(run) %><% end %>">
           <img class="card-img-top" src='https://source.unsplash.com/1600x900/?marathon' width="250" height="180" alt="Card image cap">
