@@ -78,7 +78,7 @@
 </div>
 
 <div class="padding-top">
-  <h1 class="text-center">You have laced up for<br><span class="orange-bold-text"> <%= @upcoming_runs.count %> runs</span></h1>
+  <h1 class="text-center">You have laced up for<br><span class="orange-bold-text"> <%= pluralize(@upcoming_runs.count, "run") %></span></h1>
   <div class="main-container">
     <div class="row">
       <% @upcoming_runs.each do |run| %>
@@ -102,7 +102,7 @@
   </div>
 </div>
 <div class="padding-top">
-  <h1 class="text-center">You have finished <br><span class="orange-bold-text"> <%= @completed_runs.count %> runs</span></h1>
+  <h1 class="text-center">You have finished <br><span class="orange-bold-text"> <%= pluralize(@completed_runs.count, "run") %></span></h1>
   <div class="main-container">
     <div class="row">
       <% @completed_runs.each do |run| %>
