@@ -1,4 +1,4 @@
-<h1><span class="orange-bold-text"><%= @route.name %></h1>
+<h1 class="text-center"><span class="orange-bold-text"><%= @route.name %></h1>
 
 
 <div class="run-banner">
@@ -6,8 +6,14 @@
     <div class="add-range">
         <%= simple_form_for [@run, @run_session]  do |f| %>
           <%= f.button :submit, label: "submit", class: "btn btn-primary btn-lg" %>
-          <%= f.input :start_point, label: 'Km to begin', error: 'Username is mandatory, please specify one', :value => 0, class: "color" %>
+          <%= f.input :start_point, label: 'Km0', error: 'Username is mandatory, please specify one', :value => 0, class: "color" %>
         <% end %>
+        <div class="length-session">
+          <span class="length-session--question">How many km do you want to run?</span>
+           <span id="run_session_length" class="color form-control string optional">
+          dubi
+        </span>
+        </div>
 
 
         <div class="ranges">
