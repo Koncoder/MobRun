@@ -1,3 +1,15 @@
+<div class="run-banner run-banner-narrow">
+  <div class="status scroll">
+    <span class="segment">
+      <span>Your average speed is <%= @average%>km/h</span>
+      <span>You've run a total of <%= @total%>km</span>
+      <span>Running separates the wheat from the chaff!</span>
+      <span>You've almost run 100km! Keep it up!</span>
+    </span>
+
+  </div>
+</div>
+
 <div class="padding-top">
   <h1 class="text-center">You have laced up for<br><span class="orange-bold-text"> <%= pluralize(@upcoming_runs.count, "run") %></span></h1>
   <div class="main-container">
