@@ -19,7 +19,15 @@ class Run < ApplicationRecord
   validates :speed, presence: true
 
   def self.upcoming_runs(user)
-    user.runs.where("end_time > ?", Time.now)
+    user.runs.where("end_time > ?", Time.now).order(:start_time)
+  end
+
+  def self.completed_runs(user)
+    user.runs.where("end_time < ?", Time.now).order(:start_time)
+  end
+
+  def self.all_upcoming_runs
+    Run.where("end_time > ?", Time.now).order(:start_time)
   end
 
   def self.search_by_pace_faster_than(bound)

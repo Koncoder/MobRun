@@ -11,6 +11,7 @@ class RunsController < ApplicationController
 
     @runs = Run.all
 
+
     if params[:query].present?
       @runs = @runs.search_by_route_name(params[:query])
     end
@@ -23,11 +24,16 @@ class RunsController < ApplicationController
       @runs = @runs.search_by_pace_slower_than(params[:upper_bound])
     end
 
+
+    @all_upcoming_runs = Run.all_upcoming_runs
+
   end
 
   def show
     @run = Run.find(params[:id])
-    @session = RunSession.where(run_id: params[:id]).count #WON'T THIS RETURN 1 BECAUSE OF .count???
+    filter = RunSession.where(run_id: params[:id])
+    @session = filter.count
+    @done = filter.where(user_id: current_user.id).exists?
   end
 
   def new
@@ -45,7 +51,7 @@ class RunsController < ApplicationController
       run_session = RunSession.create()
       run_session[:user_id] = current_user.id
       run_session[:run_id] = @run.id
-      run_session[:start_point] = 1
+      run_session[:start_point] = 0
       run_session.save
       redirect_to run_path(@run)
     else

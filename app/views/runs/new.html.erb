@@ -4,6 +4,9 @@
     <%= f.input :start_time %>
     <%= f.input :speed, label: "Pace (km/h)" %>
     <%#= f.input :end_time %>
-    <%= f.submit 'Add route' %>
+    <div class="text-center">
+      <%= f.submit 'Add route', class: "btn btn-primary btn-lg" %>
+    </div>
+
   <% end %>
 </div>

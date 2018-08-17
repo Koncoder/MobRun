@@ -1,0 +1,74 @@
+.range-banner{
+  display:flex;
+  justify-content: stretch;
+  align-items: center;
+
+}
+.add-range{
+  width: Calc(100% - 70px);
+  text-align: center;
+}
+.add-range{
+  .form-group{
+    flex-direction: row;
+    .form-control{
+      display:inline;
+      width:auto;
+      margin-top: 20px;
+      display: inline;
+      width: 110px;
+      margin: 20px 0 0 20px;
+    }
+  }
+}
+.number-range{
+  align-self: start;
+}
+
+.run_session_start_point input{
+  color:white;
+  background: $green;
+}
+
+.ranges{
+  display:flex;
+  justify-content: center;
+}
+.color {
+    max-width:40%;
+    background-color:$green;
+    color:#fff;
+    padding:4px 15px;
+    margin:10px auto;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    text-align:center;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.8);
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;}
+
+#uislider .ui-widget-header {
+  background:#f6a828  !important;
+  opacity:0.5;}
+
+#uislider {
+  width:70%;
+  margin:7px 15px;
+  background: #2de254; /* Old browsers */
+  background: -webkit-linear-gradient(left, $green  0%, $orange 50%, #ff1414 95%, #ff1414 100%);
+  background: -moz-linear-gradient(left, $green  0%, $orange 50%, #ff1414 95%, #ff1414 100%);
+  background: -o-linear-gradient(left, $green  0%, $orange 50%, #ff1414 95%, #ff1414 100%);
+  background: linear-gradient(to left, $green 0%, $orange 50%, #ff1414 95%, #ff1414 100%); /* FF3.6+ */ /* Chrome,Safari4+ */ /* Chrome10+,Safari5.1+ */ /* Opera 11.10+ */ /* IE10+ */ /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2de254', endColorstr='#ff1414',GradientType=1 ); /* IE6-8 */}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  top: -4px;
+  left: 2px;
+  width: 10;
+  height: 10;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, red), color-stop(100%, orange));
+  border-radius: 50%;
+  z-index: 2;}
