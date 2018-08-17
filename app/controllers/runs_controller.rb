@@ -24,7 +24,6 @@ class RunsController < ApplicationController
     if params[:upper_bound].present?
       @all_upcoming_runs = @all_upcoming_runs.search_by_pace_slower_than(params[:upper_bound])
     end
-
   end
 
   def show
