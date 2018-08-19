@@ -12,6 +12,23 @@ Run.destroy_all
 Route.destroy_all
 User.destroy_all
 
+50.times do |index|
+  User.create!(name: "Name #{index}",
+  email: "email #{index}",
+  password: "password #{index}")
+end
+50.times do |index|
+  Route.create!(name: "Name #{index}",
+  start_point: "start_point #{index}",
+  end_point: "end_point #{index}")
+  total_length: "total_length #{index}",
+  wikiloc: "wikiloc #{index}",
+
+end
+
+
+
+
 user1 = User.create(name: "Michael", email: "michael@email.com", password: "hunter2", remote_profile_picture_url: "https://res.cloudinary.com/dafxl6kch/image/upload/v1534437580/michael.png" )
 user1.save
 user2 = User.create(name: "Konstantin", email: "kon@email.com", password: "hunter2", profile_picture: "http://res.cloudinary.com/dafxl6kch/image/upload/v1534437524/konstantin_2.jpg" )
