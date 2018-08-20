@@ -8,13 +8,29 @@ class RunsController < ApplicationController
 
 
   def index
-    @runs = Run.all
+
+    # @runs = Run.all
     @all_upcoming_runs = Run.all_upcoming_runs
+
+
+    if params[:query].present?
+      @all_upcoming_runs = @all_upcoming_runs.search_by_route_name(params[:query])
+    end
+
+    if params[:lower_bound].present?
+      @all_upcoming_runs = @all_upcoming_runs.search_by_pace_faster_than(params[:lower_bound])
+    end
+
+    if params[:upper_bound].present?
+      @all_upcoming_runs = @all_upcoming_runs.search_by_pace_slower_than(params[:upper_bound])
+    end
   end
 
   def show
     @run = Run.find(params[:id])
-    @session = RunSession.where(run_id: params[:id]).count #WON'T THIS RETURN 1 BECAUSE OF .count???
+    filter = RunSession.where(run_id: params[:id])
+    @session = filter.count
+    @done = filter.where(user_id: current_user.id).exists?
   end
 
   def new

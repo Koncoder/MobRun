@@ -33,31 +33,7 @@
   width: 100px;
   margin-bottom:15px;
 }
-h1.heading {
-  color: $yellow;
-  font-size: 1.15em;
-  font-weight: 900;
-  margin: 0 0 0.5em;
-  color: #505050;
-  font-family: $shoelaces
 
-}
-@media (min-width: 450px) {
-  h1.heading {
-    font-size: 3.55em;
-  }
-}
-@media (min-width: 760px) {
-  h1.heading {
-    font-size: 3.05em;
-  }
-}
-@media (min-width: 900px) {
-  h1.heading {
-    font-size: 3.25em;
-    margin: 0 0 0.3em;
-  }
-}
 .card {
   display: block;
   padding: 8px;
@@ -68,6 +44,7 @@ h1.heading {
   transition: box-shadow .25s;
   text-align: center;
   margin: 10px;
+  height: 420px;
 }
 .card:hover {
   box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -76,7 +53,7 @@ h1.heading {
 .orange-border {
   border: 5px outset $orange;
   display: block;
-  padding: 4px;
+  padding: 3px;
   line-height: 1.42857143;
   background-color: $white;
   border-radius: 2px;
@@ -131,11 +108,11 @@ h1.heading {
     transition: box-shadow .25s;
     text-align: left
 }
-.col-container {
-  display: flex;
-  width: 100%;
-}
 .col {
   flex: 1;
   padding: 16px;
+}
+
+.card-img-top {
+  width: 100%;
 }

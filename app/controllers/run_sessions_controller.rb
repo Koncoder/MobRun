@@ -3,6 +3,26 @@ class RunSessionsController < ApplicationController
     @run_sessions = RunSession.all
     @upcoming_runs = Run.upcoming_runs(current_user)
     @completed_runs = Run.completed_runs(current_user)
+    @total = 0
+    @average = 0
+    @completed_runs.each do |run|
+      speed = run.speed
+      km = Route.find(run.route_id).total_length
+      @average = (1.0*speed*km + @average*@total) / (@total + km)
+      @total +=km
+    end
+    @average= (@average*100).to_i / 100.0
+    if @total < 50
+      @goal = 50
+    elsif @total < 100
+      @goal = 100
+    elsif @total < 500
+      @goal = 500
+    elsif @total < 1000
+      @goal = 1000
+    else
+      @goal = 1000000
+    end
   end
 
   def show

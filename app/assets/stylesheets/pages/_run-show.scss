@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   background: #eeeef9;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #eeeef9, #f7f7f7);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #eeeef9, #f7f7f7)
+  background: -webkit-linear-gradient(to left, #9df98b, #f4f9f3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #9df98b, #f4f9f3);
 }
 .run-half-banner {
   display: flex;
@@ -49,4 +49,34 @@
   .run-half-banner-1 {
     width:100%;
   }
+}
+
+#run_session_start_point{
+  color: $blue;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  margin: 20px 0;
+  padding: 0;
+  width: 60px;
+}
+#run_session_length{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.run_session_start_point{
+  margin: 0;
+  label{
+    font-weight: normal;
+  }
+}
+.length-session{
+  margin-bottom: 32px;
+}
+
+.length-session--question{
+  font-weight:600;
+  font-family: "PT Sans", sans-serif;
 }
